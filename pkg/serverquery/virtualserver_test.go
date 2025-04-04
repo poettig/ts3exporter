@@ -31,13 +31,13 @@ func TestVirtualServerStructTags(t *testing.T) {
 		QueryClientsConnections:        1,
 		FileTransferBytesSentTotal:     0,
 		FileTransferBytesReceivedTotal: 0,
-		ControlBytesSendTotal:          8189,
+		ControlBytesSentTotal:          8189,
 		ControlBytesReceivedTotal:      4182,
-		SpeechBytesSendTotal:           0,
+		SpeechBytesSentTotal:           0,
 		SpeechBytesReceivedTotal:       3501,
-		KeepAliveBytesSendTotal:        15047,
+		KeepAliveBytesSentTotal:        15047,
 		KeepAliveBytesReceivedTotal:    15413,
-		BytesSendTotal:                 23236,
+		BytesSentTotal:                 23236,
 		BytesReceivedTotal:             23096,
 	}
 	assert.Equal(t, expected, v)
