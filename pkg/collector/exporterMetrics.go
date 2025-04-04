@@ -18,6 +18,11 @@ func NewExporterMetrics() *ExporterMetrics {
 	}
 }
 
+// Init initializes the metrics given a collector label to make sure that they appear even though they might be never updated
+func (i *ExporterMetrics) Init(collector string) {
+	i.refreshErrors.WithLabelValues(collector)
+}
+
 // RefreshError increases the refresh error counter of the given collector by one.
 func (i *ExporterMetrics) RefreshError(collector string) {
 	i.refreshErrors.WithLabelValues(collector).Inc()
@@ -28,5 +33,6 @@ func (i *ExporterMetrics) Describe(descs chan<- *prometheus.Desc) {
 }
 
 func (i *ExporterMetrics) Collect(metrics chan<- prometheus.Metric) {
+	// Ensure that the metric is always initialized
 	i.refreshErrors.Collect(metrics)
 }

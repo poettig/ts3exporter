@@ -1,10 +1,9 @@
 package collector
 
 import (
-	"log"
-
 	"github.com/hikhvar/ts3exporter/pkg/serverquery"
 	"github.com/prometheus/client_golang/prometheus"
+	"log"
 )
 
 const serverInfoSubsystem = "serverinfo"
@@ -50,6 +49,7 @@ type ServerInfo struct {
 }
 
 func NewServerInfo(executor serverquery.Executor, internalMetrics *ExporterMetrics) *ServerInfo {
+	internalMetrics.Init(serverInfoSubsystem)
 	return &ServerInfo{
 		executor:                       executor,
 		internalMetrics:                internalMetrics,
