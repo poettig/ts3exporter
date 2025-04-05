@@ -1,8 +1,6 @@
 module github.com/hikhvar/ts3exporter
 
-go 1.23.0
-
-toolchain go1.24.1
+go 1.19
 
 require (
 	github.com/multiplay/go-ts3 v1.2.0
